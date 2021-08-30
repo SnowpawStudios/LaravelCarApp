@@ -1,0 +1,69 @@
+body{
+    /* background: #333; */
+    color: #fff;
+    
+}
+
+#app{
+    padding:0;
+    margin:0;
+}
+
+#home-section{
+    background:url('/images/design/mercs.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 700px;
+  }
+
+#home-section .dark-overlay{
+    position:absolute;
+    top: 0;
+    left:0;
+    width:100%;
+    min-height:700px;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#home-section .home-inner{
+    padding-top:150px;
+}
+
+#home-section .card-form{
+    opacity: 0.8;
+}
+
+#home-section .fas{
+    color: #008ed6;
+    background: #fff;
+    padding: 5px;
+    border-radius:5px;
+}
+.explore-heading{
+    
+    
+}
+
+.card-img-top {
+    width: 100%;
+    height: 30vh;
+    object-fit: cover;
+}
+
+.navbar{  
+    opacity: 0.8;
+    border-bottom: #008ed6 3px solid;
+    
+}
+
+.footer{
+    height: 20vh;
+}
+
+.main{
+    min-height: 85vh;
+}
+
+
+
