@@ -14,13 +14,10 @@ class InquiryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
     public function index()
     {
-        $inquiries = Inquiry::latest()->paginate(9);
-        
-        return view('admin.orders.index', [
-            'inquiries'=> $inquiries,
-        ]);
+        return redirect()->route('landing_page');
     }
 
     /**

@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FrontCarController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\InquiryController;
+use App\Http\Controllers\AdminInquiryController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
@@ -59,22 +60,16 @@ Route::get('/search/cars/', [FrontCarController::class, 'search'])->name('search
 //Inquiries
 Route::resource('/inquiry',InquiryController::class);
 
-//Inquiries on admin side
-
-
 Auth::routes();
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 //ADMIN ROUTES
-
 Route::get('/admin',[DashboardController::class, 'index'])->middleware('staff');
 Route::resource('admin/users', UserController::class, ['as'=> 'admin'])->middleware('staff');
 Route::resource('admin/cars', CarController::class, ['as'=> 'admin'])->middleware('staff');
 Route::resource('admin/staff',StaffController::class, ['as'=> 'admin'])->middleware('admin');
 
 //Inquiries on admin side
-Route::get('/admin/inquiries', [InquiryController::class, 'index'])->middleware('staff');
+Route::get('/admin/inquiries', [AdminInquiryController::class, 'index'])->middleware('staff');
 
 //delete car images
 Route::get('/admin-delete-images/car/{car_id}',[CarController::class, 'deleteImages'])->middleware('staff');
@@ -88,6 +83,5 @@ Route::get('/admin/search/users',[UserController::class, 'search'])->middleware(
 //search staff in admin
 Route::get('/admin/search/staff',[StaffController::class, 'search'])->middleware('staff');
 
-//search orders in admin
-Route::get('/admin/search/orders',[InquiryController::class, 'search'])->middleware('staff');
+
 
