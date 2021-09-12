@@ -12,7 +12,7 @@ class FrontCarController extends Controller
     public function index()
     {
         $cars = Car::paginate(9);
-        $searchableMakes = $cars->pluck('make');
+        $searchableMakes = $cars->pluck('make')->unique();
         $numberOfItems = $cars->count();
         return view('car.index', [
             'cars' => $cars,
