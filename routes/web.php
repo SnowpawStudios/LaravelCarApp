@@ -26,7 +26,7 @@ use App\Models\Inquiry;
 
 // LANDING PAGE
 Route::get('/', function () {
-    $makes = Car::pluck('make');
+    $makes = Car::pluck('make')->unique();
     $latestCars = Car::all()->sortDesc()->take(3);
     return view('starting_page',[       
         'makes'=> $makes,
